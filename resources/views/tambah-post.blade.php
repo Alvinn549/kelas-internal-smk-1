@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Hallo0oooooo</h1>
+    <h2>Tambah Postingn</h2>
 </body>
 
 </html>

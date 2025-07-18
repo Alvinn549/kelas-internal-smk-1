@@ -9,21 +9,22 @@
 </head>
 
 <body>
-    <h2>Tambah Postingn</h2>
+    <h2>Edit Postingn</h2>
 
     <a href="/posts">Kembali</a>
     <br><br>
 
-    <form action="/store" method="post">
+    <form action="/update/{{ $postingan->id }}" method="post">
         @csrf
+        @method('PUT')
 
         <label for="judul">Judul:</label>
-        <input type="text" name="judul">
+        <input type="text" name="judul" value="{{ $postingan->judul }}">
 
         <br>
 
         <label for="isi">Isi:</label>
-        <textarea name="isi" rows="4"></textarea>
+        <textarea name="isi" rows="4">{{ $postingan->isi }}</textarea>
 
         <br>
 

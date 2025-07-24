@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\KomentarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,5 +22,8 @@ Route::get('/detail-post/{id}', [PostController::class, 'show']);
 
 Route::delete('/delete-post/{postingan_id}', [PostController::class, 'destroy']);
 
+Route::resource('post', PostController::class);
 
-// put, patch, post, delete
+Route::resource('user', UserController::class);
+
+Route::resource('komentar', KomentarController::class);

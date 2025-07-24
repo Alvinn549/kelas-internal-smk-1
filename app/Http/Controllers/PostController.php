@@ -48,7 +48,9 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::where('id', $id)
+            ->with(['komentars'])
+            ->first();
 
         return view('detail-postingan', [
             'post' => $post
@@ -58,6 +60,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        $post->komentars()->delete();
 
         $post->delete();
 
